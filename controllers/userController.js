@@ -26,7 +26,7 @@ const userController = {
         user.email = email || user.email;
         user.isPublic = isPublic !== undefined ? isPublic : user.isPublic;
         const updatedUser = await user.save();
-        // remove  password from the response
+        // remove password from the response
         updatedUser.password = undefined;
         res.json(updatedUser);
       } else {
