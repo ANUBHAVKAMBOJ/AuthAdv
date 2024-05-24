@@ -26,6 +26,8 @@ const userController = {
         user.email = email || user.email;
         user.isPublic = isPublic !== undefined ? isPublic : user.isPublic;
         const updatedUser = await user.save();
+        // remove  password from the response
+        updatedUser.password = undefined;
         res.json(updatedUser);
       } else {
         res.status(404).json({ message: "User not found" });
